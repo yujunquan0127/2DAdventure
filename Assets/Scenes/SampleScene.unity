@@ -219,8 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  attackRange: 0
-  attackRate: 0
 --- !u!1 &463321914
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +590,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.77, y: 6.24, z: -10}
+  m_LocalPosition: {x: -2.75, y: 6.24, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7979,8 +7977,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  attackRange: 0
-  attackRate: 0
 --- !u!60 &912692189
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8783,7 +8779,6 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   invulnerableDuration: 0
-  invulnerableCounter: 0
   invulnerable: 0
   OnTakeDamage:
     m_PersistentCalls:
@@ -8873,8 +8868,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  attackRange: 0
-  attackRate: 0
 --- !u!60 &1274165131
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8942,8 +8935,10 @@ GameObject:
   - component: {fileID: 1476926633}
   - component: {fileID: 1476926632}
   - component: {fileID: 1476926636}
+  - component: {fileID: 1476926640}
   - component: {fileID: 1476926637}
   - component: {fileID: 1476926638}
+  - component: {fileID: 1476926639}
   m_Layer: 8
   m_Name: Boar
   m_TagString: Untagged
@@ -9084,7 +9079,7 @@ Transform:
   m_GameObject: {fileID: 1476926631}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.05, y: 5.48, z: 0}
+  m_LocalPosition: {x: 2.25, y: 4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9140,7 +9135,6 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   invulnerableDuration: 1
-  invulnerableCounter: 0
   invulnerable: 0
   OnTakeDamage:
     m_PersistentCalls:
@@ -9161,8 +9155,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  attackRange: 0
-  attackRate: 0
+--- !u!114 &1476926639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476926631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1385967ba34d1ce4e8ccdd531f4fb41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSpeed: 100
+  chaseSpeed: 0
+  currentSpeed: 0
+  faceDirection: {x: 0, y: 0, z: 0}
+--- !u!95 &1476926640
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476926631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 298eb94e745a0f94ca489f20c817d842, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1599497908
 GameObject:
   m_ObjectHideFlags: 0
