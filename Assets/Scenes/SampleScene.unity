@@ -7066,7 +7066,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -8726,11 +8726,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02aeccd336ad8cc44a5f64eb4ea858cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manual: 0
+  bottomOffset: {x: 0, y: 0}
+  leftOffset: {x: 0, y: 0}
+  rightOffset: {x: 0, y: 0}
   checkRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   isGrounded: 0
+  touchLeftWall: 0
+  touchRightWall: 0
 --- !u!95 &1172149437
 Animator:
   serializedVersion: 5
@@ -8939,6 +8945,7 @@ GameObject:
   - component: {fileID: 1476926637}
   - component: {fileID: 1476926638}
   - component: {fileID: 1476926639}
+  - component: {fileID: 1476926641}
   m_Layer: 8
   m_Name: Boar
   m_TagString: Untagged
@@ -9192,6 +9199,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1476926641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476926631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02aeccd336ad8cc44a5f64eb4ea858cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manual: 0
+  bottomOffset: {x: -1.44, y: 0}
+  leftOffset: {x: -0.96, y: 0.67}
+  rightOffset: {x: 0.69, y: 0.64}
+  checkRadius: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isGrounded: 1
+  touchLeftWall: 0
+  touchRightWall: 0
 --- !u!1 &1599497908
 GameObject:
   m_ObjectHideFlags: 0
