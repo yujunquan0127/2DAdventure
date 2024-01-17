@@ -7,52 +7,57 @@ using UnityEngine.EventSystems;
 public class Enemy : MonoBehaviour
 {
     protected Rigidbody2D rb;
-    protected Animator anim;
-    private PysicsCheck pysicsCheck;
+    [HideInInspector]public Animator anim;
+    [HideInInspector]public PysicsCheck pysicsCheck;
     
     [Header("Properties")]
     public float normalSpeed;
     public float chaseSpeed;
-    public float currentSpeed;
-    public Vector3 faceDirection;
-    public Transform attacker;
+    [HideInInspector]public float currentSpeed;
+    [HideInInspector]public Vector3 faceDirection;
+    [HideInInspector]public Transform attacker;
     public float hurtForce;
+    
     [Header("Counter")] 
     public float waitTime;
-    public float waitCounter;
-    public bool wait;
-    public bool ishurt;
-    public bool isDead;
-    private void Awake()
+    [HideInInspector]public float waitCounter;
+    [HideInInspector]public bool wait;
+    [HideInInspector]public bool ishurt;
+    [HideInInspector]public bool isDead;
+    private BaseState currentState;
+    protected BaseState patrolState;
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         pysicsCheck = GetComponent<PysicsCheck>();
+        
         currentSpeed = normalSpeed;
-        waitCounter = waitTime;
     }
 
     private void FixedUpdate()
     {
-        if (!ishurt)
+        if (!ishurt && !ishurt && !wait)
             Move();
+        currentState.PhysicsUpdate();
     }
 
     private void Update()
     {
         faceDirection = new Vector3(-transform.localScale.x,0,0);
-        
-        if((pysicsCheck.touchLeftWall && faceDirection.x < 0) || (pysicsCheck.touchRightWall && faceDirection.x > 0))
-        {
-            wait = true;
-            anim.SetBool("walk",false);
-        }
+        currentState.LogicUpdate();
         TimeCounter();
     }
 
     public virtual void Move()
     {
         rb.velocity = new Vector2(currentSpeed * faceDirection.x * Time.deltaTime,rb.velocity.y);
+    }
+
+    private void OnEnable()
+    {
+        currentState = patrolState;
+        currentState.OnEnter(this);
     }
 
     public void TimeCounter()

@@ -35,7 +35,7 @@ public class PysicsCheck : MonoBehaviour
 
     public void Check()
     {
-        isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, checkRadius, groundLayer);
+        isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(bottomOffset.x* transform.localScale.x,bottomOffset.y), checkRadius, groundLayer);
         rightOffset = new Vector2((coll.bounds.size.x/2+coll.offset.x*transform.localScale.x),coll.offset.y);
         leftOffset = new Vector2(-(coll.bounds.size.x/2-coll.offset.x*transform.localScale.x),rightOffset.y);
         touchLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, checkRadius, groundLayer);
