@@ -8294,7 +8294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputDirection: {x: 0, y: 0}
   jumpForce: 16
-  hurtForce: 6
+  hurtForce: 10
   normal: {fileID: 6200000, guid: 4763fae4fefba314bbc0bbc3441ab0b4, type: 2}
   wall: {fileID: 6200000, guid: d4ed10bda5d32e14895d64cda27d96e9, type: 2}
   isCrouch: 0
@@ -8759,7 +8759,7 @@ Transform:
   m_GameObject: {fileID: 1476926631}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.69, y: 4.65, z: 0}
+  m_LocalPosition: {x: 2.83, y: -5.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8812,7 +8812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3282780d7b5e44b93416b2f88f2c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 100
   currentHealth: 0
   invulnerableDuration: 1
   invulnerable: 0
@@ -8874,14 +8874,22 @@ MonoBehaviour:
   anim: {fileID: 0}
   pysicsCheck: {fileID: 0}
   normalSpeed: 100
-  chaseSpeed: 0
+  chaseSpeed: 200
   currentSpeed: 0
   faceDirection: {x: 0, y: 0, z: 0}
   attacker: {fileID: 0}
-  hurtForce: 6
+  hurtForce: 4
+  centerOffset: {x: 0, y: 0.65}
+  checkBoxSize: {x: 1, y: 1}
+  checkDistance: 4.5
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 128
   waitTime: 2
   waitCounter: 0
   wait: 0
+  lostTime: 2
+  lostTimeCounter: 0
   ishurt: 0
   isDead: 0
 --- !u!95 &1476926640
