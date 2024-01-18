@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(Rigidbody2D),typeof(Animator),typeof(PysicsCheck))]
 public class Enemy : MonoBehaviour
 {
     protected Rigidbody2D rb;
@@ -48,9 +49,9 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        currentState.PhysicsUpdate();
         if (!ishurt && !ishurt && !wait)
             Move();
-        currentState.PhysicsUpdate();
     }
 
     private void Update()
@@ -62,7 +63,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void Move()
     {
-        rb.velocity = new Vector2(currentSpeed * faceDirection.x * Time.deltaTime,rb.velocity.y);
+        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("SnailPreMove"))
+            rb.velocity = new Vector2(currentSpeed * faceDirection.x * Time.deltaTime,rb.velocity.y);
     }
 
     private void OnEnable()
@@ -77,7 +79,7 @@ public class Enemy : MonoBehaviour
         if (wait)
         {
             waitCounter -= Time.deltaTime;
-            if (waitCounter <= 0)
+            if (waitCounter <= 0 || ishurt)
             {
                 wait = false;
                 waitCounter = waitTime;
@@ -88,6 +90,9 @@ public class Enemy : MonoBehaviour
         if (!FoundPlayer()&&lostTimeCounter>0)
         {
             lostTimeCounter -= Time.deltaTime;
+        }else if (FoundPlayer())
+        {
+            lostTimeCounter = lostTime;
         }
     }
 

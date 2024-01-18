@@ -13,7 +13,7 @@ public class BoarChaseState : BaseState
 
     public override void OnExit()
     {
-        currentEnemy.lostTimeCounter = currentEnemy.lostTime;
+        // currentEnemy.lostTimeCounter = currentEnemy.lostTime;
         currentEnemy.anim.SetBool("run",false);
     }
 
