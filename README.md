@@ -1,5 +1,5 @@
 # 2D Adventure
-![image](https://github.com/yujunquan0127/2DAdventure/assets/91772955/7450c636-f174-434f-b2d4-5d79f1776d76)
+![Untitled video - Made with Clipchamp](https://github.com/yujunquan0127/2DAdventure/assets/91772955/9e024c13-8546-43c6-a88e-9b8554adb291)
 
 Hello!
 
